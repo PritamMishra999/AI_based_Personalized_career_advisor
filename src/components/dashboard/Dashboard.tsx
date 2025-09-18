@@ -5,7 +5,6 @@ import {
   TrendingUp, 
   Users, 
   BookOpen, 
-  Award,
   Activity,
   Clock,
   ArrowUp,
