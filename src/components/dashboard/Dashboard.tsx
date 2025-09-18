@@ -4,40 +4,42 @@ import { Sidebar } from './Sidebar';
 import { 
   TrendingUp, 
   Users, 
-  DollarSign, 
-  ShoppingCart,
+  BookOpen, 
+  Award,
   Activity,
   Clock,
   ArrowUp,
-  ArrowDown
+  ArrowDown,
+  Briefcase,
+  Star
 } from 'lucide-react';
 
 const stats = [
   {
-    label: 'Total Revenue',
-    value: '$45,231.89',
-    change: '+20.1%',
+    label: 'Career Matches',
+    value: '15',
+    change: '+3 new',
     changeType: 'positive' as const,
-    icon: DollarSign,
+    icon: Briefcase,
   },
   {
     label: 'Active Users',
     value: '2,350',
-    change: '+180',
+    change: '+120',
     changeType: 'positive' as const,
     icon: Users,
   },
   {
-    label: 'Orders',
-    value: '12,234',
-    change: '-19%',
-    changeType: 'negative' as const,
-    icon: ShoppingCart,
+    label: 'Skills Learned',
+    value: '48',
+    change: '+6 this week',
+    changeType: 'positive' as const,
+    icon: BookOpen,
   },
   {
-    label: 'Growth Rate',
-    value: '23.5%',
-    change: '+4.2%',
+    label: 'Success Rate',
+    value: '87%',
+    change: '+2.5%',
     changeType: 'positive' as const,
     icon: TrendingUp,
   },
@@ -46,27 +48,27 @@ const stats = [
 const recentActivity = [
   {
     user: 'John Smith',
-    action: 'made a purchase',
+    action: 'completed "Advanced Java"',
     time: '2 minutes ago',
-    amount: '$299.00',
+    amount: null,
   },
   {
     user: 'Sarah Johnson',
-    action: 'created an account',
+    action: 'got recommended for "Full Stack Developer"',
     time: '5 minutes ago',
     amount: null,
   },
   {
     user: 'Mike Wilson',
-    action: 'updated profile',
+    action: 'updated career preferences',
     time: '10 minutes ago',
     amount: null,
   },
   {
     user: 'Emily Davis',
-    action: 'made a purchase',
+    action: 'earned a certificate in "Data Analytics"',
     time: '15 minutes ago',
-    amount: '$156.50',
+    amount: null,
   },
 ];
 
@@ -106,20 +108,20 @@ export const Dashboard: React.FC = () => {
                     >
                       {stat.change}
                     </span>
-                    <span className="text-sm text-gray-500 ml-1">from last month</span>
+                    <span className="text-sm text-gray-500 ml-1">compared to last week</span>
                   </div>
                 </div>
               ))}
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-              {/* Chart Placeholder */}
+              {/* Skill Progress Placeholder */}
               <div className="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
-                <h3 className="text-lg font-semibold text-gray-900 mb-4">Revenue Overview</h3>
+                <h3 className="text-lg font-semibold text-gray-900 mb-4">Skill Progress Overview</h3>
                 <div className="h-64 bg-gradient-to-br from-blue-50 to-indigo-100 rounded-lg flex items-center justify-center">
                   <div className="text-center">
                     <Activity className="w-12 h-12 text-blue-600 mx-auto mb-2" />
-                    <p className="text-gray-600">Chart visualization would go here</p>
+                    <p className="text-gray-600">Skill progress chart will go here</p>
                   </div>
                 </div>
               </div>
@@ -146,11 +148,6 @@ export const Dashboard: React.FC = () => {
                           </div>
                         </div>
                       </div>
-                      {activity.amount && (
-                        <span className="text-sm font-medium text-green-600">
-                          {activity.amount}
-                        </span>
-                      )}
                     </div>
                   ))}
                 </div>
@@ -163,54 +160,54 @@ export const Dashboard: React.FC = () => {
                 <h3 className="text-lg font-semibold text-gray-900 mb-4">Quick Actions</h3>
                 <div className="space-y-3">
                   <button className="w-full text-left p-3 bg-blue-50 hover:bg-blue-100 rounded-lg transition-colors">
-                    <span className="text-sm font-medium text-blue-700">Create New Report</span>
+                    <span className="text-sm font-medium text-blue-700">View Career Recommendations</span>
                   </button>
                   <button className="w-full text-left p-3 bg-green-50 hover:bg-green-100 rounded-lg transition-colors">
-                    <span className="text-sm font-medium text-green-700">Export Data</span>
+                    <span className="text-sm font-medium text-green-700">Check Skill Gap</span>
                   </button>
                   <button className="w-full text-left p-3 bg-purple-50 hover:bg-purple-100 rounded-lg transition-colors">
-                    <span className="text-sm font-medium text-purple-700">Schedule Meeting</span>
+                    <span className="text-sm font-medium text-purple-700">Book Mentorship Session</span>
                   </button>
                 </div>
               </div>
 
               <div className="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
-                <h3 className="text-lg font-semibold text-gray-900 mb-4">System Status</h3>
+                <h3 className="text-lg font-semibold text-gray-900 mb-4">Top Skills</h3>
                 <div className="space-y-3">
                   <div className="flex items-center justify-between">
-                    <span className="text-sm text-gray-600">API Status</span>
-                    <span className="px-2 py-1 bg-green-100 text-green-800 text-xs rounded-full">Active</span>
+                    <span className="text-sm text-gray-600">JavaScript</span>
+                    <Star className="w-4 h-4 text-yellow-400" />
                   </div>
                   <div className="flex items-center justify-between">
-                    <span className="text-sm text-gray-600">Database</span>
-                    <span className="px-2 py-1 bg-green-100 text-green-800 text-xs rounded-full">Healthy</span>
+                    <span className="text-sm text-gray-600">React</span>
+                    <Star className="w-4 h-4 text-yellow-400" />
                   </div>
                   <div className="flex items-center justify-between">
-                    <span className="text-sm text-gray-600">Storage</span>
-                    <span className="px-2 py-1 bg-yellow-100 text-yellow-800 text-xs rounded-full">75% Full</span>
+                    <span className="text-sm text-gray-600">SQL</span>
+                    <Star className="w-4 h-4 text-yellow-400" />
                   </div>
                 </div>
               </div>
 
               <div className="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
-                <h3 className="text-lg font-semibold text-gray-900 mb-4">Team</h3>
+                <h3 className="text-lg font-semibold text-gray-900 mb-4">Mentors</h3>
                 <div className="space-y-3">
                   <div className="flex items-center space-x-3">
                     <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
-                      <span className="text-xs font-medium text-blue-600">JS</span>
+                      <span className="text-xs font-medium text-blue-600">AK</span>
                     </div>
                     <div>
-                      <p className="text-sm font-medium text-gray-900">John Smith</p>
-                      <p className="text-xs text-gray-500">Administrator</p>
+                      <p className="text-sm font-medium text-gray-900">Anil Kumar</p>
+                      <p className="text-xs text-gray-500">Career Coach</p>
                     </div>
                   </div>
                   <div className="flex items-center space-x-3">
                     <div className="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center">
-                      <span className="text-xs font-medium text-green-600">SJ</span>
+                      <span className="text-xs font-medium text-green-600">RS</span>
                     </div>
                     <div>
-                      <p className="text-sm font-medium text-gray-900">Sarah Johnson</p>
-                      <p className="text-xs text-gray-500">Editor</p>
+                      <p className="text-sm font-medium text-gray-900">Ritu Sharma</p>
+                      <p className="text-xs text-gray-500">Skill Mentor</p>
                     </div>
                   </div>
                 </div>
